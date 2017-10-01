@@ -1,0 +1,57 @@
+1. DDL – Data Definition Language
+DDL is used to define the structure that holds the data. For example, Create, Alter, Drop and Truncate table.
+
+2. DML – Data Manipulation Language
+DML is used for manipulation of the data itself. Typical operations are Insert, Delete, Update and retrieving the data from the table. The Select statement is considered as a limited version of the DML, since it can't change the data in the database. But it can perform operations on data retrieved from the DBMS, before the results are returned to the calling function.
+
+3. DCL – Data Control Language 
+DCL is used to control the visibility of data like granting database access and set privileges to create tables, etc. Example - Grant, Revoke access permission to the user to access data in the database.
+
+1. Atomicity
+https://msdn.microsoft.com/en-us/library/aa480356.aspx
+An atomic transaction is either fully completed, or is not begun at all.
+A transaction consists of many steps. When all the steps in a transaction get completed, it will get reflected in DB or if any step fails, all the transactions are rolled back.
+
+2. Consistency
+The database will move from one consistent state to another, if the transaction succeeds.
+The database remain in the original state, if the transaction fails.
+
+3. Isolation
+Every transaction should operate as if it is the only transaction in the system.If there are two transactions that are both performing the same function and are running at the same time, transaction isolation will ensure that each transaction thinks it has exclusive use of the system. 
+
+4. Durability
+Once a transaction has completed successfully, the updated rows/records must be available for all other transactions on a permanent basis.
+Durability
+A transaction is durable in that once it has been successfully completed, all of the changes it made to the system are permanent. There are safeguards that will prevent the loss of information, even in the case of system failure. By logging the steps that the transaction performs, the state of the system can be recreated even if the hardware itself has failed. The concept of durability allows the developer to know that a completed transaction is a permanent part of the system, regardless of what happens to the system later on.
+
+What is a Database Lock ?
+
+Database lock tells a transaction, if the data item in questions is currently being used by other transactions.
+1. Shared Lock
+When a shared lock is applied on data item, other transactions can only read the item, but can't write into it.
+
+2. Exclusive Lock
+When an exclusive lock is applied on data item, other transactions can't read or write into the data item.
+
+. What is a primary key?
+
+A primary key is a column whose values uniquely identify every row in a table. Primary key values can never be reused. If a row is deleted from the table, its primary key may not be assigned to any new rows in the future. To define a field as primary key, following conditions had to be met :
+1. No two rows can have the same primary key value.
+2. Every row must have a primary key value.
+3. The primary key field cannot be null.
+4. Value in a primary key column can never be modified or updated, if any foreign key refers to that primary key.
+
+What is a Composite Primary Key ?
+A Composite primary key is a set of columns whose values uniquely identify every row in a table. What it means is that, a table which contains composite primary key will be indexed based on the columns specified in the primary key. This key will be referred in Foreign Key tables.
+
+For example - if the combined effect of columns, "Employee_ID" and "Employee Name" in a table is required to uniquely identify a row, its called a Composite Primary Key. In this case, both the columns will be represented as primary key.
+
+The following constraints are commonly used in SQL:
+
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Uniquely identifies a row/record in another table
+CHECK - Ensures that all values in a column satisfies a specific condition
+DEFAULT - Sets a default value for a column when no value is specified
+INDEX - Use to create and retrieve data from the database very quickly

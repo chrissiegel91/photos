@@ -1,0 +1,167 @@
+http://www.informit.com/articles/article.aspx?p=26266&seqNum=5
+https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpoq/index.html
+Messaging Domain Models
+JMS supports two types of messaging models (also referred to as domain models) that are common in the messaging world: Point-to-Point (P2P) and Publish/Subscribe (pub/sub). Not all messaging middleware supports both models, and the JMS 1.02 specification doesn't require the JMS provider to support both models. Regardless of the messaging model, JMS clients exchange messages by sending or retrieving messages to and from a virtual address termed the "destination." JMS providers are responsible for destination services.
+
+
+
+
+servletcontext.setattribute example 
+The servletContext.setAttribute() is dynamic which can be set and reset during runtime.
+
+Where as init-parameter specified in web.xml is static which will not change during the lifetime of application.
+
+Example:
+
+The database properties like database name configuration propety. It will be mostly configured as context init-param
+And if you want to set property value which derives based on runtime changes, like "last user logged in" or "number of failures" should be context attributes.
+
+try{
+InternetAddress internetAddress= new InternetAddress(email);
+internetAddress.validate();
+isValid=true;
+}
+http://crunchify.com/how-to-validate-email-address-using-java-mail-api/
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
+https://docs.oracle.com/middleware/1213/wls/WSRPC/jax-rpc-client.htm#WSRPC199
+
+jax-rpc client use to invoke the webservice 
+https://docs.oracle.com/middleware/1213/wls/WSRPC/jax-rpc-client.htm#WSRPC208
+
+
+A SOAP message is an ordinary XML document containing the following elements -
+
+Envelope - Defines the start and the end of the message. It is a mandatory element.
+
+Header - Contains any optional attributes of the message used in processing the message, either at an intermediary point or at the ultimate end-point. It is an optional element.
+
+Body - Contains the XML data comprising the message being sent. It is a mandatory element.
+
+Fault - An optional Fault element that provides information about errors that occur while processing the message.
+
+All these elements are declared in the default namespace for the SOAP envelope -
+
+http://www.w3.org/2001/12/soap-envelope and the default namespace for SOAP encoding and data types is - http://www.w3.org/2001/12/soap-encoding
+
+NOTE - All these specifications are subject to change. So keep updating yourself with the latest specifications available on the W3 website.
+
+SOAP Message Structure
+The following block depicts the general structure of a SOAP message -
+
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2001/12/soap-envelope" SOAP-ENV:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+   <SOAP-ENV:Header>
+      ...
+      ...
+   </SOAP-ENV:Header>
+   
+   <SOAP-ENV:Body>
+      ...
+      ...
+      <SOAP-ENV:Fault>
+         ...
+         ...
+      </SOAP-ENV:Fault>
+      ...
+   </SOAP-ENV:Body>
+   
+</SOAP_ENV:Envelope>
+
+elements must exist in a soap message with attachments message structure 
+http://docs.roguewave.com/hydraexpress/4.6.0/html/rwsfwsdevug/17-2.html
+
+
+error handling in jsp with example
+http://www.tutorialspoint.com/jsp/jsp_exception_handling.htm
+<%@ page errorPage = "ShowError.jsp" %>
+
+<html>
+   <head>
+      <title>Error Handling Example</title>
+   </head>
+   
+   <body>
+      <%
+         // Throw an exception to invoke the error page
+         int x = 1;
+         
+         if (x == 1) {
+            throw new RuntimeException("Error condition!!!");
+         }
+      %>
+   </body>
+</html>
+
+interfaces of common client interface
+http://docs.oracle.com/javaee/6/tutorial/doc/gipju.html
+https://docs.oracle.com/javaee/7/tutorial/resources003.htm#GIPJU
+
+
+Use pub/sub messaging when each message can be processed by zero, one, or many consumers
+https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpoq/index.html
+
+SAAJ--
+soap with attachments api for java for web services 
+https://en.wikipedia.org/wiki/SOAP_with_Attachments_API_for_Java
+A SOAPMessage object may have zero, one or many additional AttachmentPart objects with any MIME content type such as an XML document, plain text or an image. If it has zero attachments the message will be transmitted as a plain XML document. Adding one or more attachments automatically cause transmission as a collection of MIME parts. Attachments are added using the AttachmentPart class, which requires a data source, typically an InputStream, and a MIME content type. Since the Java standard library provides many ways to create an InputStream, this approach is extremely flexible
+
+https://docs.oracle.com/javaee/7/tutorial/ejb-intro002.htm
+A stateless session bean does not maintain a conversational state with the client.
+A stateless session bean can implement a web service, but a stateful session bean cannot
+
+
+predefined recipient types javamail
+https://www.tutorialspoint.com/javamail_api/javamail_api_core_classes.htm
+Three predefined address types are objects with one of these values:
+
+Message.RecipientType.TO
+
+Message.RecipientType.CC
+
+Message.RecipientType.BCC
+
+JSP tags
+https://www.tutorialspoint.com/jsp/jsp_interview_questions.htm
+
+
+J2ee Transactions
+http://docs.oracle.com/javaee/7/tutorial/transactions003.htm
+
+https://www.ibm.com/developerworks/community/blogs/messaging/entry/configuring_the_message_driven_bean_transaction_support?lang=en
+
+EAR file,
+One or more Web modules packaged in WAR files.
+One or more EJB modules packaged in JAR files
+One or more application client modules
+Additional JAR files required by the application
+Any combination of the above
+
+J2EE Security Architecture
+http://docs.oracle.com/javaee/7/tutorial/security-webtier.htm#BNCAS
+
+A security constraint is used to define the access privileges to a collection of resources using their URL mapping.
+
+If your web application uses a servlet, you can express the security constraint information by using annotations. Specifically, you use the @HttpConstraint and, optionally, the @HttpMethodConstraint annotations within the @ServletSecurity annotation to specify a security constraint.
+
+If your web application does not use a servlet, however, you must specify a security-constraint element in the deployment descriptor file. The authentication mechanism cannot be expressed using annotations, so if you use any authentication method other than BASIC (the default), a deployment descriptor is required.
+
+The following subelements can be part of a security-constraint.
+
+Web resource collection (web-resource-collection): A list of URL patterns (the part of a URL after the host name and port you want to constrain) and HTTP operations (the methods within the files that match the URL pattern you want to constrain) that describe a set of resources to be protected. Web resource collections are discussed in Specifying a Web Resource Collection.
+
+Authorization constraint (auth-constraint): Specifies whether authentication is to be used and names the roles authorized to perform the constrained requests. For more information about authorization constraints, see Specifying an Authorization Constraint.
+
+User data constraint (user-data-constraint): Specifies how data is protected when transported between a client and a server. User data constraints are discussed in Specifying a Secure Connection.
+
+
+Amazon SQS with Java Messaging Library.
+Apache ActiveMQ.
+Apache Qpid, using AMQP.
+Oracle Weblogic (part of the Fusion Middleware suite) and Oracle AQ from Oracle.
+EMS from TIBCO.
+FFMQ, GNU LGPL licensed.
+FioranoMQ.
+JBoss Messaging and HornetQ from JBoss.
